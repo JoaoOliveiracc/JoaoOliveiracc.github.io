@@ -18,4 +18,12 @@ class News extends Model
         'category',
         'cover_image',
     ];
+
+    /**
+     * Relacionamento com a categoria de notícia (NewsCategory).
+     */
+    public function category()
+    {
+        return $this->belongsTo(NewsCategories::class, 'category_id');
+    }
 }

@@ -16,11 +16,13 @@ class NewsController extends Controller
         $news = News::query()
             ->when($search, function ($query, $search) {
                 return $query->where('title', 'like', "%{$search}%")
-                            ->orWhere('category', 'like', "%{$search}%");
+                            ->orWhereHas('category', function ($query) use ($search) {
+                                $query->where('category_name', 'like', "%{$search}%");
+                            });
             })
+            ->with('category')
             ->orderBy('title')
             ->get();
-
         
         $msgSuccess = session('msg.success');
         $request->session()->forget('msg.success');
@@ -50,6 +52,8 @@ class NewsController extends Controller
             $path = $request->file('cover_image')->store('images', 'public');
             $validatedData['cover_image'] = $path;
         }
+
+        $validatedData['category_id'] = (int) $validatedData['category_id'];
 
         News::create($validatedData);
 
