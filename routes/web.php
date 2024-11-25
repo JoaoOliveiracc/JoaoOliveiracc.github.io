@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NewsCategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 
@@ -17,5 +18,10 @@ use App\Http\Controllers\NewsController;
 Route::get('/', function() {
     return redirect('/news');
   });
-
+  
 Route::Resource('/news', NewsController::class)->except('show');
+Route::resource('/news/categories', NewsCategoryController::class)->only(['index', 'create', 'store'])->names([
+  'index' => 'news.categories.index',
+  'create' => 'news.categories.create',
+  'store' => 'news.categories.store',
+]);

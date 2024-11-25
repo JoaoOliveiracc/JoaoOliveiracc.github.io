@@ -14,8 +14,12 @@
     <input type="date" class="form-control" name="published_at">
 
     <label for="category" class="form-label">Categoria</label>
-    <input type="text" class="form-control" name="category">
-
+    <select class="form-control" name="category_id">
+      @foreach($categories as $category)
+          <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+      @endforeach
+    </select>
+    
     <label for="cover" class="form-label">Capa</label>
     <input type="file" name="cover_image" class="form-control">
   </div>

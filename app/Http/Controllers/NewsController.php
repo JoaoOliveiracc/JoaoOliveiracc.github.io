@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\NewsFormRequest;
 use App\Models\News;
+use App\Models\NewsCategories;
 use Illuminate\Http\Request;
 
 class NewsController extends Controller
@@ -20,6 +21,7 @@ class NewsController extends Controller
             ->orderBy('title')
             ->get();
 
+        
         $msgSuccess = session('msg.success');
         $request->session()->forget('msg.success');
 
@@ -32,7 +34,11 @@ class NewsController extends Controller
 
     public function create()
     {
-        return view('news.create');
+        $categories = NewsCategories::query()->orderBy('category_name')->get();
+
+        return view('news.create', [
+            'categories' => $categories
+        ]);
     }
 
     public function store(NewsFormRequest $request)

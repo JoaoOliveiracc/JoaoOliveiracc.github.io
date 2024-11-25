@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Investidor10 - Notícias</title>
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ mix('js/app.js') }}"></script>
 </head>
 <body>
   <div class="container">
