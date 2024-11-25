@@ -30,7 +30,7 @@
       @foreach ($news as $new)
         <tr>
           <td>{{ $new->title }}</td>
-          <td>{{ $new->category ?? 'Sem Categoria' }}</td>
+          <td>{{ $new->category->category_name ?? 'Sem Categoria' }}</td>
           <td class="d-flex">
             <a href="{{ route('news.edit', $new->id) }}" class="btn btn-primary btn-sm me-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
