@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('content');
             $table->string('author', 128);
             $table->timestamp('published_at')->nullable();
-            $table->unsignedBigInteger('category_id'); // Relacionamento com a categoria
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->string('cover_image')->nullable();
             $table->timestamps();
 

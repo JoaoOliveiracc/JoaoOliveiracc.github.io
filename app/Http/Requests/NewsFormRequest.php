@@ -28,7 +28,7 @@ class NewsFormRequest extends FormRequest
             'content' => ['required', 'max:1028'],
             'author' => ['required', 'max:128'],
             'published_at' => ['nullable', 'date'],
-            'category' => ['required', 'max:64'],
+            'category_id' => ['required', 'exists:news_categories,id'],
             'cover_image' => ['nullable', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
         ];
     }
