@@ -21,11 +21,22 @@
       </ul>
       <form class="position-relative ms-4" role="search" action="{{ route('news.index') }}">
         <input class="form-control me-2" type="search" name="search" aria-label="Search" style="max-width: 14vw !important;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search position-absolute" viewBox="0 0 16 16" style="left: 160px; top: 50%; transform: translateY(-50%);">
-          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-        </svg>
-        {{-- <button class="btn btn-outline-success" type="submit">Search</button> --}}
-      </form>
+        <button type="submit" class="position-absolute btn-search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+            </svg>
+        </button>
+      </form>    
     </div>
   </div>
 </nav>
+
+<style>
+  .btn-search {
+    background: none;
+    border: none;
+    left: 160px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+</style>
