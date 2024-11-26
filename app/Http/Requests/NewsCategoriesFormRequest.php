@@ -24,7 +24,7 @@ class NewsCategoriesFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'category_name' => ['required', 'min:8'],
+            'category_name' => ['required', 'min:5'],
         ];
     }
 }
