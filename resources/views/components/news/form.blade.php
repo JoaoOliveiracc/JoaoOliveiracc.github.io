@@ -27,7 +27,9 @@
 </form>
 
 <style>
-  form {
-    width: 40vw;
+  @media (min-width: 769px) {
+    form {
+      width: 60vw;
+    }
   }
 </style>

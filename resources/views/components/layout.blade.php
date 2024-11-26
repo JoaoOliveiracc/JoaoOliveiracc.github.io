@@ -16,7 +16,6 @@
   <x-menu></x-menu>
   <div class="container">
     <h1>{{ $title }}</h1>
-    <div class="content">
       @if ($errors->any())
         <div class="alert alert-danger">
           <ul>
@@ -27,7 +26,6 @@
         </div>
       @endif
       {{ $slot }}
-    </div>
   </div>
 </body>
 </html>
