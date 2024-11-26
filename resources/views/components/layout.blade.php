@@ -8,13 +8,15 @@
   <link rel="stylesheet" href="{{ asset('css/app.css') }}">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="{{ mix('js/app.js') }}"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <body>
+  <x-menu></x-menu>
   <div class="container">
-    <x-menu></x-menu>
+    <h1>{{ $title }}</h1>
     <div class="content">
-      <h1>{{ $title }}</h1>
-
       @if ($errors->any())
         <div class="alert alert-danger">
           <ul>
@@ -24,7 +26,6 @@
           </ul>
         </div>
       @endif
-      
       {{ $slot }}
     </div>
   </div>
@@ -32,19 +33,14 @@
 </html>
 
 <style> 
+  body {
+    background-color: #efefef;
+  }
   .container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  }
-
-  .content {
-    margin-left: 220px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+    margin-top: 4vh;
   }
 </style>
