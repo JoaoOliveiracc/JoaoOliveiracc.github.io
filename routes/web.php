@@ -20,10 +20,11 @@ Route::get('/', function() {
   });
   
 Route::Resource('/news', NewsController::class)->except('show');
-Route::resource('/news/categories', NewsCategoryController::class)->only(['index', 'create', 'store', 'edit', 'destroy'])->names([
+Route::resource('/news/categories', NewsCategoryController::class)->except(['show'])->names([
   'index' => 'news.categories.index',
   'create' => 'news.categories.create',
   'store' => 'news.categories.store',
   'edit' => 'news.categories.edit',
-  'destroy' => 'news.categories.destroy',
 ]);
+
+Route::delete('/news/categories/destroy/{category}', [NewsCategoryController::class, 'destroy'])->name('news.categories.destroy');

@@ -33,15 +33,15 @@ class NewsCategoryController extends Controller
         return to_route('news.categories.index')->with(['msg.success' => 'Categoria adicionada com sucesso!']);
     }
 
-    public function destroy(NewsCategories $categories)
-    {
-        $categories->delete();
+    public function destroy(NewsCategories $category)
+    {  
+        $category->delete();
 
         return to_route('news.categories.index')->with('msg.success', 'Categoria removida com sucesso');
     }
 
-    public function edit(NewsCategories $newsCategories)
+    public function edit(NewsCategories $category)
     {
-        return view('news.categories.edit')->with('news', $newsCategories);
+        return view('news.categories.edit')->with('news', $category);
     }
 }
