@@ -1,4 +1,9 @@
 <x-layout title="Notícias">
+  @isset($msgSuccess)
+    <div class="alert alert-success mt-3">
+      {{ $msgSuccess }}
+    </div>
+  @endisset
   <div class="row">
     @foreach ($news as $new)
     <div class="col-md-4 mb-4">
